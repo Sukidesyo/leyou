@@ -1,0 +1,21 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-Service
+  rabbitmq:
+    username: leyou
+    password: leyou
+    host: 127.0.0.1
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+ly:
+  sms:
+    secretId: AKIDA4j7Ui9NzLfiY9OkifPs5AyW8UZO7bnx  # 你自己的accessKeyId
+    secretKey: LTJvHNDn9G9m9I9lK5VaOwFIky0hz3tU # 你自己的AccessKeySecret
+    appId: 1400382279
+    appKey: efa38769ab0b869a79086db44c7cd3f7
+    signName: sukidesyo网
+    verifyCodeTemplate: 627348

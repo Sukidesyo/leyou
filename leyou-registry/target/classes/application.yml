@@ -1,0 +1,9 @@
+server:
+  port: 10086
+spring:
+  application:
+    name: leyouRegistry
+eureka:
+  client:
+    service-url:
+      defaulteZone: http://127.0.0.1:${server.port}/eureka

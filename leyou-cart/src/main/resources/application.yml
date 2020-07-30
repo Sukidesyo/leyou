@@ -1,0 +1,20 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: cart-Service
+  redis:
+    host: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+ly:
+  jwt:
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub
+    cookieName: leyou_login
+

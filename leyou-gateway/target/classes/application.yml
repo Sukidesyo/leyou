@@ -1,0 +1,56 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: leyou-gateway
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+#zuul:
+#  prefix: /api
+#  routes:
+#    item-Service: /item/**
+zuul:
+  prefix: /api
+  routes:
+    item-Service: /item/**
+    search-Service: /search/**
+    user-Service: /user/**
+    auth-Service: /auth/**
+    cart-Service: /cart/**
+    leyou-uploadService:
+      path: /upload/**
+      serviceId: leyou-uploadService
+      strip-prefix: false
+  add-host-header: true
+  sensitive-headers:
+# 熔断保护
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000
+# 负载均衡
+ribbon:
+  ConnectTimeout: 12000
+  ReadTimeout: 12000
+  eureka:
+    enabled: true
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+leyou:
+  jwt:
+    pubKeyPath:  C:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: leyou_login # cookie的名称
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

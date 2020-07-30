@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: leyou-uploadService
+  servlet:
+    multipart:
+      max-file-size: 5MB #文件上传大小限制
+      max-request-size: 5MB # 一次请求的最大限制
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    ip-address: 127.0.0.1

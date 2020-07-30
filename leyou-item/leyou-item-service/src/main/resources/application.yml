@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-Service
+  datasource:
+    url: jdbc:mysql://localhost:3306/yun6?serverTimezone=GMT
+    username: root
+    password: xby123456
+  rabbitmq:
+    host: 127.0.0.1
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000ms
+        multiplier: 2
+        max-interval: 3000ms
+# 将服务注册到Eureka上
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka

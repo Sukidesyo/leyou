@@ -1,0 +1,29 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: user-Service
+  datasource:
+    url: jdbc:mysql://localhost:3306/yun6?serverTimezone=GMT
+    username: root
+    password: xby123456
+  rabbitmq:
+    host: 127.0.0.1
+    username: leyou
+    password: leyou
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000ms
+        multiplier: 2
+        max-interval: 3000ms
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+mybatis:
+  type-aliases-package: com.leyou.user.pojo
